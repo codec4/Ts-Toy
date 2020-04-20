@@ -1,7 +1,8 @@
-import { LOL } from 'src/testModule';
-import { FOO } from 'src/module/testFoo';
-import { LOL_KEK } from './testRelative';
+import { call, fill, fill2 } from './ts-func/typing-function-ch4'
 
-console.log(LOL);
-console.log(FOO);
-console.log(LOL_KEK);
+
+const fooResult = call(fill, 10, "a");
+const booResult = call(fill2, 10, "a", "2");
+
+console.log('fooResult >>> ', fooResult);
+console.log('booResult >>> ', booResult);
