@@ -1,0 +1,38 @@
+{
+  "name": "ts-toy",
+  "version": "1.0.0",
+  "description": "Some experiments with ts lang",
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start:dev": "run-s clean build wp && run-p \"build -- --w\" \"wp -- --watch\" serve",
+    "serve": "nodemon --delay 1000ms ./build/dist/app-bundle.js",
+    "serve:inspect": "nodemon --inspect --watch build/dist/ --delay 1000ms ./build/dist/app-bundle.js",
+    "wp": "webpack --config=configs/webpack.config.js",
+    "fix": "run-s fix:*",
+    "fix:prettier": "prettier \"src/**/*.ts\" --write",
+    "clean": "run-s \"rm build\"",
+    "rm": "rm -rf"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codec4/ts-toy.git"
+  },
+  "author": "O.Step",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codec4/ts-toy/issues"
+  },
+  "homepage": "https://github.com/codec4/ts-toy#readme",
+  "devDependencies": {
+    "@types/node": "^13.13.0",
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1",
+    "nodemon": "^2.0.3",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.4",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}
