@@ -1,4 +1,4 @@
-import { call, fill, fill2 } from './ts-func/typing-function-ch4'
+import { call, fill, fill2 } from './prog-ts/typing-function-ch4'
 
 
 const fooResult = call(fill, 10, "a");
