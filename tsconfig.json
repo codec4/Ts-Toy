@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "ES5",
+    "target": "es2015",
     "outDir": "build/src",
     "moduleResolution": "node",
-    "module": "ES2015",
+    "module": "CommonJS",
     "declaration": false,
     "inlineSourceMap": true,
     "esModuleInterop": true,
-    "strict": true,
-    "noUnusedLocals": true,
+    "strict": false,
+    "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
@@ -17,11 +17,10 @@
     "listEmittedFiles": false,
     "listFiles": false,
     "pretty": true,
-
-    "lib": ["ES2019"],
+    "lib": ["ES2015.Generator", "ES2019", "ES2020.Promise"],
     "types": ["node"],
     "typeRoots": ["node_modules/@types", "src/types"]
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules/**"],
+  "exclude": ["node_modules/**"]
 }
