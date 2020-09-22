@@ -1,4 +1,4 @@
-import { arrayChange } from './codesignal/main';
+import { absoluteValuesSumMinimization } from './codesignal/main';
 
-console.log(arrayChange([1, 1, 1]));
-console.log(arrayChange([-1000, 0, -2, 0]));
+console.log(absoluteValuesSumMinimization([2, 4, 7]));
+console.log(absoluteValuesSumMinimization([2, 3]));

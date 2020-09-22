@@ -58,11 +58,7 @@ function permutationEquationIterativeArray(p: number[]) {
 }
 console.timeEnd('third');
 
-export {
-  permutationEquation,
-  permutationEquationIterative,
-  permutationEquationIterativeArray,
-};
+export { permutationEquation, permutationEquationIterative, permutationEquationIterativeArray };
 
 // console.log(permutationEquation([5, 2, 1, 3, 4]));
 // console.log(permutationEquationIterative([5, 2, 1, 3, 4]));
