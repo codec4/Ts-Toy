@@ -15,11 +15,7 @@ const initializeColor = (vertices: (string | number)[]) => {
   return color;
 };
 
-export const breadthFirstSearch = (
-  graph: Graph,
-  startVertex: any,
-  callback: Function
-) => {
+export const breadthFirstSearch = (graph: Graph, startVertex: any, callback: Function) => {
   const vertices = graph.getVertices();
   const adjList = graph.getAdjList();
   const color = initializeColor(vertices);

@@ -51,9 +51,7 @@ export function swap(array: any[], a: number, b: number) {
   [array[a], array[b]] = [array[b], array[a]];
 }
 
-export function reverseCompare<T>(
-  compareFn: ICompareFunction<T>
-): ICompareFunction<T> {
+export function reverseCompare<T>(compareFn: ICompareFunction<T>): ICompareFunction<T> {
   return (a, b) => compareFn(b, a);
 }
 
