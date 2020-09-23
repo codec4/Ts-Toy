@@ -1,4 +1,3 @@
-import { arrayChange } from './codesignal/main';
+import { lastDigit } from './codewars/last_digit_of_a_huge_numbers';
 
-console.log(arrayChange([1, 1, 1]));
-console.log(arrayChange([-1000, 0, -2, 0]));
+console.log(lastDigit([2, 2, 2, 0]));

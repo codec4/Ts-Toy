@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "target": "es2015",
-    "outDir": "build/src",
-    "moduleResolution": "node",
-    "module": "CommonJS",
+    // "baseUrl": ".",
+    "target": "ESNext",
+    "outDir": "build",
+    "moduleResolution": "Bundler",
+    "module": "ESNext",
     "declaration": false,
     "inlineSourceMap": true,
     "esModuleInterop": true,
@@ -17,9 +17,11 @@
     "listEmittedFiles": false,
     "listFiles": false,
     "pretty": true,
-    "lib": ["ES2015.Generator", "ES2019", "ES2020.Promise"],
-    "types": ["node"],
-    "typeRoots": ["node_modules/@types", "src/types"]
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "lib": ["ES2015.Generator", "ES2019", "ES2020.Promise", "WebWorker"],
+    // "types": ["node"]
+    // "typeRoots": ["src/types"]
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules/**"]

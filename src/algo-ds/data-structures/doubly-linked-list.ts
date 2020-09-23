@@ -3,7 +3,7 @@ import LinkedList from './linked-list';
 import { DoublyNode } from './models/linked-list-models';
 
 export default class DoublyLinkedList<T> extends LinkedList<T> {
-  protected head: DoublyNode<T> | undefined;
+  protected override head: DoublyNode<T> | undefined = undefined;
   protected tail: DoublyNode<T> | undefined;
 
   constructor(protected equalsFn: IEqualsFunction<T> = defaultEquals) {

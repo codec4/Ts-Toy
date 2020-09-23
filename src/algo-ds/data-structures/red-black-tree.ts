@@ -1,9 +1,9 @@
 import { defaultCompare, ICompareFunction, Compare } from '../util';
-import BinarySearchTree from './binary-search-tree';
+import { BinarySearchTree } from './binary-search-tree';
 import { RedBlackNode, Colors } from './models/red-black-node';
 
 export default class RedBlackTree<T> extends BinarySearchTree<T> {
-  protected root: RedBlackNode<T>;
+  protected override root: RedBlackNode<T> = null;
 
   constructor(protected compareFn: ICompareFunction<T> = defaultCompare) {
     super(compareFn);
@@ -101,12 +101,7 @@ export default class RedBlackTree<T> extends BinarySearchTree<T> {
   }
 
   private fixTreeProperties(node: RedBlackNode<T>) {
-    while (
-      node &&
-      node.parent &&
-      node.parent.color === Colors.RED &&
-      node.color !== Colors.BLACK
-    ) {
+    while (node && node.parent && node.parent.color === Colors.RED && node.color !== Colors.BLACK) {
       let parent = node.parent;
       const grandParent = parent.parent;
 

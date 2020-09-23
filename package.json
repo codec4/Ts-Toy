@@ -2,15 +2,17 @@
   "name": "ts-toy",
   "version": "1.0.0",
   "description": "Some experiments with ts lang",
-  "main": "index.ts",
+  "main": "src/app.ts",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "start:dev": "run-s clean build && run-p \"build -- --w\" serve",
-    "serve": "nodemon --delay 500ms ./build/src/app.js",
+    "build": "rimraf ./build && tsc",
+    "start:dev": "nodemon",
+    "start": "npm run build && node build/app.js",
     "fix": "run-s fix:*",
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "clean": "run-s \"rm build\"",
-    "rm": "rm -rf"
+    "ts-node": "ts-node",
+    "rm": "rm -rf",
+    "test": "vitest"
   },
   "husky": {
     "hooks": {
@@ -28,17 +30,20 @@
   },
   "homepage": "https://github.com/codec4/ts-toy#readme",
   "devDependencies": {
-    "@types/node": "^14.0.20",
-    "@types/node-fetch": "^2.5.7",
-    "chai": "^4.2.0",
-    "husky": "^4.2.5",
-    "mocha": "^7.2.0",
-    "nodemon": "^2.0.4",
+    "@types/node": "^22.6.1",
+    "husky": "^9.1.5",
     "npm-run-all": "^4.1.5",
-    "prettier": "2.0.5",
-    "typescript": "^3.9.7"
+    "prettier": "^3.3.3",
+    "tap": "^21.0.1",
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.1"
   },
   "dependencies": {
-    "node-fetch": "^2.6.0"
-  }
+    "@types/node": "^22.6.1",
+    "nodemon": "^3.1.4",
+    "rimraf": "^6.0.1",
+    "rxjs": "7.8.1",
+    "ts-node": "^10.9.2"
+  },
+  "private": true
 }

@@ -1,7 +1,7 @@
 import { Compare, defaultCompare, ICompareFunction } from '../util';
 import { Node } from './models/node';
 
-export default class BinarySearchTree<T> {
+export class BinarySearchTree<T> {
   protected root: Node<T>;
 
   constructor(protected compareFn: ICompareFunction<T> = defaultCompare) {}
@@ -37,9 +37,9 @@ export default class BinarySearchTree<T> {
     return this.searchNode(this.root, key);
   }
 
-  private searchNode(node: Node<T>, key: T): boolean {
+  protected searchNode(node: Node<T>, key: T): Node<T> {
     if (node == null) {
-      return false;
+      return node;
     }
 
     if (this.compareFn(key, node.key) === Compare.LESS_THAN) {
@@ -48,67 +48,71 @@ export default class BinarySearchTree<T> {
       return this.searchNode(node.right, key);
     }
     // key is equal to node.item
-    return true;
+    return node;
   }
 
   inOrderTraverse(callback: Function) {
     this.inOrderTraverseNode(this.root, callback);
   }
 
-  private inOrderTraverseNode(node: Node<T>, callback: Function) {
-    if (node != null) {
-      this.inOrderTraverseNode(node.left, callback);
-      callback(node.key);
-      this.inOrderTraverseNode(node.right, callback);
+  protected inOrderTraverseNode(node: Node<T>, callback: Function) {
+    if (node == null) {
+      return;
     }
+
+    this.inOrderTraverseNode(node.left, callback);
+    callback(node.key);
+    this.inOrderTraverseNode(node.right, callback);
   }
 
   preOrderTraverse(callback: Function) {
     this.preOrderTraverseNode(this.root, callback);
   }
 
-  private preOrderTraverseNode(node: Node<T>, callback: Function) {
-    if (node != null) {
-      callback(node.key);
-      this.preOrderTraverseNode(node.left, callback);
-      this.preOrderTraverseNode(node.right, callback);
+  protected preOrderTraverseNode(node: Node<T>, callback: Function) {
+    if (node == null) {
+      return;
     }
+
+    callback(node.key);
+    this.preOrderTraverseNode(node.left, callback);
+    this.preOrderTraverseNode(node.right, callback);
   }
 
   postOrderTraverse(callback: Function) {
     this.postOrderTraverseNode(this.root, callback);
   }
 
-  private postOrderTraverseNode(node: Node<T>, callback: Function) {
-    if (node != null) {
-      this.postOrderTraverseNode(node.left, callback);
-      this.postOrderTraverseNode(node.right, callback);
-      callback(node.key);
+  protected postOrderTraverseNode(node: Node<T>, callback: Function) {
+    if (node == null) {
+      return;
     }
+
+    this.postOrderTraverseNode(node.left, callback);
+    this.postOrderTraverseNode(node.right, callback);
+    callback(node.key);
   }
 
   min() {
     return this.minNode(this.root);
   }
 
-  protected minNode(node: Node<T>) {
-    let current = node;
-    while (current != null && current.left != null) {
-      current = current.left;
+  protected minNode(node: Node<T>): Node<T> {
+    if (node.left == null) {
+      return node;
     }
-    return current;
+    return this.minNode(node.left);
   }
 
   max() {
     return this.maxNode(this.root);
   }
 
-  protected maxNode(node: Node<T>) {
-    let current = node;
-    while (current != null && current.right != null) {
-      current = current.right;
+  protected maxNode(node: Node<T>): Node<T> {
+    if (node.right == null) {
+      return node;
     }
-    return current;
+    return this.maxNode(node.right);
   }
 
   remove(key: T) {
