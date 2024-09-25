@@ -1,0 +1,48 @@
+{
+  "name": "ts-toy",
+  "version": "1.0.0",
+  "description": "Some experiments with ts lang",
+  "main": "src/app.ts",
+  "scripts": {
+    "build": "rimraf ./build && tsc",
+    "start:dev": "nodemon",
+    "start": "npm run build && node build/app.js",
+    "fix": "run-s fix:*",
+    "fix:prettier": "prettier \"src/**/*.ts\" --write",
+    "clean": "run-s \"rm build\"",
+    "ts-node": "ts-node",
+    "rm": "rm -rf",
+    "test": "tap"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run fix"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codec4/ts-toy.git"
+  },
+  "author": "O.Step",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codec4/ts-toy/issues"
+  },
+  "homepage": "https://github.com/codec4/ts-toy#readme",
+  "devDependencies": {
+    "@types/node": "^22.6.1",
+    "husky": "^9.1.5",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.3.3",
+    "tap": "^21.0.1",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "@types/node": "^22.6.1",
+    "nodemon": "^3.1.4",
+    "rimraf": "^6.0.1",
+    "rxjs": "7.8.1",
+    "ts-node": "^10.9.2"
+  },
+  "private": true
+}

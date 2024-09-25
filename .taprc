@@ -1,0 +1,7 @@
+# vim: set filetype=yaml :
+node-arg:
+  - '--allow-natives-syntax'
+
+include:
+  - 'src/**/*.test.ts'
+  - 'test/**/*.test.ts'
